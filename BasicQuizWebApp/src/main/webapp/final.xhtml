@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+
+	<h2>Finished</h2>
+		<hr/>
+	<h:outputText value="Correct Answers: " />
+	<h:outputText value="#{bean.correctAnswers}" />
+	<br/>
+	<h:outputText value="Wrong Answers: " />
+	<h:outputText value="#{bean.wrongAnswers}" />
+	<br/>
+	<h:outputText value="Score: " />
+	<h:outputText value="#{bean.score}" />
+	<br/>
+	<h:outputText value="Summary: " />
+	<br/>
+	<!-- 
+	<table>
+		<ui:repeat var="" value="">
+
+			<tr>
+				<td>1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td></td>
+			</tr>
+		</ui:repeat>
+	</table> 
+	-->
+	<br/>
+	<h:form>
+	<h:commandButton action="#{bean.restartQuiz()}" value="Restart" />
+
+	</h:form>
+</h:body> 
+</html>
