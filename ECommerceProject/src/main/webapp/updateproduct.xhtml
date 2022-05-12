@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	
+	<h:form id="myform">
+
+		<p:dataTable value="#{productBean.products}" var="product"
+			editable="true">
+
+			<p:ajax event="rowEdit" listener="#{productBean.updateProduct}" />
+
+
+			<p:column headerText="Name" sortable="true" sortBy="#{product.name}">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.name}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{product.name}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+
+			<p:column headerText="Edit">
+				<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit"
+					saveTitle="Save Row" />
+			</p:column>
+
+			<p:column headerText="Fiyat" sortable="true"
+				sortBy="#{product.price}">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.price}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{product.price}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+
+			<p:column headerText="Edit">
+				<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit"
+					saveTitle="Save Row" />
+			</p:column>
+
+			<p:column headerText="Ürün Stok Adedi" sortable="true"
+				sortBy="#{product.stock}">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.stock}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{product.stock}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+
+			<p:column headerText="Edit">
+				<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit"
+					saveTitle="Save Row" />
+			</p:column>
+
+			<p:column headerText="Delete">
+				<p:commandButton action="#{productBean.deleteProduct(product.id)}"
+					value="Delete" update=":myform" />
+			</p:column>
+
+		</p:dataTable>
+		<a href="categorylist.xhtml"><p style="text-align: center;">Kategorilere
+				geri dön</p></a>
+	</h:form>
+</body>
+</html>

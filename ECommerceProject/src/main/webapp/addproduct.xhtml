@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+</style>
+</h:head>
+<body>
+	
+	<h:form>
+
+		<table align="center" border="2" cellpadding="2" cellspacing="2">
+			<tr>
+				<th colspan="2" align="center">Yeni Ürün Ekle
+					<div style="color: red;">#{categoryBean.cat.name}</div>
+				</th>
+			</tr>
+
+			<tr>
+				<td>Ürün Kategorisi</td>
+				<td><h:selectOneMenu value="#{productBean.category.id}">
+						<f:selectItem itemLabel="Kategori seç" itemValue="#{null}" />
+						<f:selectItems value="#{productBean.categories}" var="category"
+							itemLabel="#{category.name}" itemValue="#{category.id}" />
+						<h:outputText value="#{category.name}" />
+					</h:selectOneMenu></td>
+			</tr>
+			<tr>
+				<td>Ürün Adı</td>
+				<td><h:inputText value="#{productBean.product.name}" /></td>
+			</tr>
+			<tr>
+				<td>Ürün Fiyatı</td>
+				<td><h:inputText value="#{productBean.product.price}" /></td>
+			</tr>
+			<tr>
+				<td>Ürün Stok Adedi</td>
+				<td><h:inputText value="#{productBean.product.stock}" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><h:commandButton action="#{productBean.saveProduct()}"
+						value="Kaydet" /> <h:commandButton
+						action="categorylist.xhtml?faces-redirect=true"
+						value="Kategorileri Göster" /></td>
+			</tr>
+		</table>
+	</h:form>
+</body>
+</html>

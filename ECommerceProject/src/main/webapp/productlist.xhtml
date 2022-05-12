@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		
+
+		<h1 style="text-align: center;">Ürünler</h1>
+
+		<table>
+			<tr>
+				<th>Ürün</th>
+				<th>Fiyat</th>
+				<th>Stok Adedi</th>
+			</tr>
+			<ui:repeat var="product" value="#{productListBean.category.products}">
+				<tr>
+					<td>#{product.name}</td>
+					<td>#{product.price} TL</td>
+					<td>#{product.stock}</td>
+				</tr>
+			</ui:repeat>
+
+		</table>
+		<a href="categorylist.xhtml"><p style="text-align: center;">Kategorilere
+				geri dön</p></a>
+	</h:form>
+</h:body>
+</html>

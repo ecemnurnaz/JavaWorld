@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+}
+
+td, th {
+	text-align: center;
+	padding: 8px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+
+		<table align="center" border="2" cellpadding="2" cellspacing="2">
+			<tr>
+				<th colspan="2" align="center">Giriş formu</th>
+			</tr>
+			<tr>
+				<td>Kullanıcı Adı: </td>
+				<td><h:inputText id="username" value="#{loginBean.username}" required="true" requiredMessage="gerekli!"/></td>
+				<h:message for="username" />
+			</tr>
+			<tr>
+				<td>Şifre: </td>
+				<td><h:inputSecret id="password" value="#{loginBean.password}" required="true" requiredMessage="gerekli!" /></td>
+				<h:message for="password" />
+			</tr>
+			<tr>
+				<td></td>
+				<td><h:commandButton action="#{loginBean.checkUser()}" value="Giriş Yap" /></td>
+			</tr>
+		</table>
+
+
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<table align="center" border="2" cellpadding="2" cellspacing="2">
+			<tr>
+				<td><h:commandLink action="addproduct"
+						rendered="#{loginBean.user.admin}" value="Ürün Ekle" /></td>
+				<td><h:commandLink action="updateproduct"
+						rendered="#{loginBean.user.admin}" value="Ürün Güncelle" /></td>
+				<td><h:commandLink action="addcategory"
+						rendered="#{loginBean.user.admin}" value="Kategori Ekle" /></td>
+				<td><h:commandLink action="updatecategory"
+						rendered="#{loginBean.user.admin}" value="Kategori Güncelle" /></td>
+
+			</tr>
+		</table>
+		<br></br>
+		<table align="center" cellpadding="2" cellspacing="2">
+			<tr>
+				<th colspan="2">Hoşgeldin <h:outputText
+						value="#{loginBean.user.username}" />!
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">Kullanıcı Bilgileri:</th>
+			</tr>
+			<tr>
+				<td>Kullanıcı Adı:</td>
+				<td><h:outputText value="#{loginBean.user.username}" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><h:outputText value="#{loginBean.user.email}" /></td>
+			</tr>
+
+
+		</table>
+		<a href="categorylist.xhtml"><p style="text-align: center;">Kategorilere
+				geri dön</p></a>
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<style>
+#tab2 {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#td2 {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="#{loginBean.user.username}" /><h:commandLink action="#{loginBean.logout()}" rendered="#{loginBean.user.user}" value=" Çıkış Yap" />
+		<table align="center">
+			<tr>
+
+				<td><h:commandLink action="addproduct"
+						rendered="#{loginBean.user.admin}" value="Ürün Ekle  " /></td>
+				<td><h:commandLink action="updateproduct"
+						rendered="#{loginBean.user.admin}" value="Ürün Güncelle  " /></td>
+				<td><h:commandLink action="addcategory"
+						rendered="#{loginBean.user.admin}" value="Kategori Ekle  " /></td>
+				<td><h:commandLink action="updatecategory"
+						rendered="#{loginBean.user.admin}" value="Kategori Güncelle" /></td>
+
+			</tr>
+		</table>
+
+		<h:commandLink action="login" rendered="#{!loginBean.user.user}"
+			value="Giriş Yap" />
+		<h1 style="text-align: center;">Kategoriler</h1>
+
+		<table id="tab2">
+			<ui:repeat var="category" value="#{categoryListBean.categories}">
+				<tr>
+					<td id="td2"><a
+						href="productlist.xhtml?categoryId=#{category.id}">#{category.name}</a>
+					</td>
+				</tr>
+			</ui:repeat>
+		</table>
+	</h:form>
+</h:body>
+</html>
